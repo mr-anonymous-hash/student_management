@@ -10,9 +10,9 @@ const getAllRecords = async(model) => {
     }
 }
 
-const getRecordById = async(model,id) =>{
+const getRecordById = async(model,class_name) =>{
     try{
-        const record = await model.findAll({where:{id}});
+        const record = await model.findAll({where:{class_name}});
         return record
     }catch(err){
         console.log(`Error while fetching:${err}`);
@@ -40,8 +40,18 @@ const updateRecord = async(model, data) =>{
     }
 }
 
+const deleteRecord = async(model, id) =>{
+    try{
+        const record = await model.destroy(id)
+        return record
+    }catch(err){
+        console.log(`Error while fetching:${err}`);
+        return false;
+    }   
+}
+
 
 
 module.exports = {
-    getAllRecords,getRecordById,createRecord,updateRecord
+    getAllRecords,getRecordById,createRecord,updateRecord,deleteRecord
 }
