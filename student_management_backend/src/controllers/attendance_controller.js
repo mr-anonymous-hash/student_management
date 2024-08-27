@@ -6,8 +6,8 @@ const getAllAttendance = async(req,res)=>{
     res.send(attendance).status(200)
 }
 
-const getAttendanceById = async(req,res)=>{
-    const class_name = req.body.class_name
+const getAttendanceByClass = async(req,res)=>{
+    const class_name = req.params.class_name
     const attendance = await attendance_crud.getAttendanceByClass(class_name)
     if(attendance){
         res.status(200).send(attendance)
@@ -39,5 +39,5 @@ const deleteAttendance = async(req,res)=>{
 }
 
 module.exports = {
-    getAllAttendance,getAttendanceById,createAttendance,updateAttendance,deleteAttendance
+    getAllAttendance,getAttendanceByClass,createAttendance,updateAttendance,deleteAttendance
 } 
