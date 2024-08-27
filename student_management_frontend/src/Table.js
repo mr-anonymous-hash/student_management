@@ -16,7 +16,7 @@ const Tabel = ({ data, onStatusChange }) => {
         <tbody>
           {data.map((row, index) => (
             <tr key={index}>
-              <td>{row.attendance_date}</td>
+              <td>{row.attendance_date.slice(0,10)}</td>
               <td>{row.roll_no}</td>
               <td>{row.class_name}</td>
               <td>
