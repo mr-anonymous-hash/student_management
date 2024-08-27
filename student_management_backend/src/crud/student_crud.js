@@ -3,9 +3,9 @@ const db_factory = require('./../utils/db_factory')
 
 const getAllStudents = async() => await db_factory.getAllRecords(Students)
 
-const getStudentByClass = async(class_name) => await db_factory.getAllRecords(Students, class_name)
+const getStudentByClass = async(class_name) => await db_factory.getRecordById(Students, class_name)
 
-const createStudent = async(data) => await db_factory.getAllRecords(Students, data)
+const createStudent = async(data) => await db_factory.createRecord(Students, data)
 
 module.exports = {
     getAllStudents,getStudentByClass,createStudent
