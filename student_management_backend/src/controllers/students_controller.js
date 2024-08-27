@@ -6,9 +6,9 @@ const getAllstudents = async(req,res)=>{
     res.send(students).status(200)
 }
 
-const getstudentsById = async(req,res)=>{
-    const classroom = req.body.class
-    const students = await student_crud.getStudentByClass(classroom)
+const getstudentsByClass = async(req,res)=>{
+    const class_name = req.params.class_name
+    const students = await student_crud.getStudentsByClass(class_name)
     if(students){
         res.status(200).send(students)
     }else{
@@ -35,5 +35,5 @@ const deletestudents = async(req,res)=>{
 }
 
 module.exports = {
-    getAllstudents,getstudentsById,createstudent,updatestudents,deletestudents
+    getAllstudents,getstudentsByClass,createstudent,updatestudents,deletestudents
 } 
