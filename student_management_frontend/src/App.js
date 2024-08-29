@@ -13,7 +13,7 @@ function App() {
   }, []);
 
   const fetchClassrooms = () => {
-    axios.get('http://localhost:8000/classrooms')
+    axios.get('http://localhost:8000/api/classrooms')
       .then(response => {
         setClassrooms(response.data);
       }).catch(err => {
@@ -33,7 +33,7 @@ function App() {
 
   const fetchAttendanceData = (className) => {
     setIsLoading(true);
-    axios.get(`http://localhost:8000/attendance/${className}`)
+    axios.get(`http://localhost:8000/api/attendance/${className}`)
       .then(response => {
         setAttendanceData(response.data);
         setIsLoading(false);
@@ -63,7 +63,7 @@ function App() {
       <select value={selectedClass} onChange={handleSelectChange}>
         <option value="">-Select Class-</option>
         {classrooms.map((classItem, index) => (
-          <option key={index} value={classItem.class_name}>{classItem.class_name}</option>
+          <option >{classItem.class_name}</option>
         ))}    
       </select>
 
