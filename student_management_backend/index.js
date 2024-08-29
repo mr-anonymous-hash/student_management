@@ -6,7 +6,7 @@ const app = express();
 app.use(cors())
 app.use(express.json());
 
-app.use('/',require('./src/routes/index'))
+app.use('/api',require('./src/routes/index'))
 
 // Start the server
 const PORT = 8000;
